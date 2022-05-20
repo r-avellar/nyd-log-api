@@ -1,6 +1,7 @@
 package com.nyd.nydlog.domain.service;
 
 
+import com.nyd.nydlog.api.DTO.EntregaDTO;
 import com.nyd.nydlog.domain.exception.NegocioException;
 import com.nyd.nydlog.domain.model.Cliente;
 import com.nyd.nydlog.domain.model.Entrega;

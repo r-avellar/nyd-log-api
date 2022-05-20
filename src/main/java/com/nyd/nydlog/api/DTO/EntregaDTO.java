@@ -11,7 +11,7 @@ import java.time.OffsetDateTime;
 @Setter
 public class EntregaDTO {
     private Long id;
-    private String nomeCliente;
+    private ClienteResumoDTO cliente;
     private DestinatarioDTO destinatario;
     private BigDecimal taxa;
     private StatusEntrega status;

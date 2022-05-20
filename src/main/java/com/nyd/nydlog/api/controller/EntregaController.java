@@ -1,9 +1,14 @@
 package com.nyd.nydlog.api.controller;
 
+import com.nyd.nydlog.api.DTO.DestinatarioDTO;
+import com.nyd.nydlog.api.DTO.EntregaDTO;
+import com.nyd.nydlog.api.assembler.EntregaAssembler;
 import com.nyd.nydlog.domain.model.Entrega;
+import com.nyd.nydlog.domain.model.input.EntregaInput;
 import com.nyd.nydlog.domain.repository.EntregaRepository;
 import com.nyd.nydlog.domain.service.CriacaoEntregaService;
 import lombok.AllArgsConstructor;
+import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,21 +23,27 @@ public class EntregaController {
 
     private CriacaoEntregaService service;
     private EntregaRepository repository;
+    private EntregaAssembler assembler;
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Entrega solicitar(@Valid @RequestBody Entrega entrega){
-        return service.criar(entrega);
+    public EntregaDTO solicitar(@Valid @RequestBody EntregaInput entregaInput){
+
+        Entrega novaEntrega = assembler.toEntity(entregaInput);
+        Entrega entrega = service.criar(novaEntrega);
+        return assembler.toDTO(entrega);
+
     }
 
     @GetMapping
-    public List<Entrega> listar (){
-        return repository.findAll();
+    public List<EntregaDTO> listar (){
+
+        return assembler.toCollectionModel(repository.findAll());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Entrega> listar (@PathVariable Long id){
-        return repository.findById(id).map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
+    public ResponseEntity<EntregaDTO> listar (@PathVariable Long id){
+        return repository.findById(id).map(entrega -> ResponseEntity.ok(assembler.toDTO(entrega)) ).orElse(ResponseEntity.notFound().build());
     }
 
 }
