@@ -14,6 +14,10 @@ public class ClienteService {
 
     private ClienteRepository repository;
 
+    public Cliente buscar(Long id){
+       return repository.findById(id).orElseThrow(()-> new NegocioException("Cliente não encontrado"));
+    }
+
     @Transactional
     public Cliente salvar (Cliente cliente){
         boolean jaExiste = repository.findByEmail(cliente.getEmail()).stream().anyMatch(clienteExistente -> !clienteExistente.equals(cliente));
