@@ -1,6 +1,6 @@
-package com.nyd.nydlog.domain.repository;
+package com.nyd.nydlog.api.domain.repository;
 
-import com.nyd.nydlog.domain.model.Entrega;
+import com.nyd.nydlog.api.domain.model.Entrega;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

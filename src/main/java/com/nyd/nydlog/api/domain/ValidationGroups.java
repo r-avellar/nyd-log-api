@@ -1,4 +1,4 @@
-package com.nyd.nydlog.domain;
+package com.nyd.nydlog.api.domain;
 
 public interface ValidationGroups {
 

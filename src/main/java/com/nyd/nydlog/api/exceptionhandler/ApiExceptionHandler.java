@@ -1,6 +1,7 @@
 package com.nyd.nydlog.api.exceptionhandler;
 
-import com.nyd.nydlog.domain.exception.NegocioException;
+import com.nyd.nydlog.api.domain.exception.EntidadeNaoEncontradaException;
+import com.nyd.nydlog.api.domain.exception.NegocioException;
 import lombok.AllArgsConstructor;
 import org.springframework.context.MessageSource;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -15,7 +16,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +47,18 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(NegocioException.class)
     public ResponseEntity<Object> handleNegocioException(NegocioException ex, WebRequest request){
         HttpStatus status = HttpStatus.BAD_REQUEST;
+
+        Problema problema = new Problema();
+        problema.setStatus(status.value());
+        problema.setDataHora(OffsetDateTime.now());
+        problema.setTitulo(ex.getMessage());
+
+        return handleExceptionInternal(ex, problema, new HttpHeaders(), status, request );
+    }
+
+    @ExceptionHandler(EntidadeNaoEncontradaException.class)
+    public ResponseEntity<Object> handleNegocioException(EntidadeNaoEncontradaException ex, WebRequest request){
+        HttpStatus status = HttpStatus.NOT_FOUND;
 
         Problema problema = new Problema();
         problema.setStatus(status.value());

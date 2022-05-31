@@ -1,6 +1,6 @@
 package com.nyd.nydlog.api.DTO;
 
-import com.nyd.nydlog.domain.model.StatusEntrega;
+import com.nyd.nydlog.api.domain.model.StatusEntrega;
 import lombok.Getter;
 import lombok.Setter;
 

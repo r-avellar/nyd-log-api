@@ -1,8 +1,8 @@
 package com.nyd.nydlog.api.assembler;
 
 import com.nyd.nydlog.api.DTO.EntregaDTO;
-import com.nyd.nydlog.domain.model.Entrega;
-import com.nyd.nydlog.domain.model.input.EntregaInput;
+import com.nyd.nydlog.api.domain.model.Entrega;
+import com.nyd.nydlog.api.input.EntregaInput;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;

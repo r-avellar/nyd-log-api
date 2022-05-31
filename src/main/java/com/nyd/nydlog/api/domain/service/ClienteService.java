@@ -1,8 +1,8 @@
-package com.nyd.nydlog.domain.service;
+package com.nyd.nydlog.api.domain.service;
 
-import com.nyd.nydlog.domain.exception.NegocioException;
-import com.nyd.nydlog.domain.model.Cliente;
-import com.nyd.nydlog.domain.repository.ClienteRepository;
+import com.nyd.nydlog.api.domain.model.Cliente;
+import com.nyd.nydlog.api.domain.exception.NegocioException;
+import com.nyd.nydlog.api.domain.repository.ClienteRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 

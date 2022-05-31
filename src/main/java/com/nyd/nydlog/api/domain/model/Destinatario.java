@@ -1,4 +1,4 @@
-package com.nyd.nydlog.domain.model;
+package com.nyd.nydlog.api.domain.model;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package com.nyd.nydlog.domain.exception;
+package com.nyd.nydlog.api.domain.exception;
 
 public class NegocioException extends RuntimeException {
     public NegocioException(String message) {

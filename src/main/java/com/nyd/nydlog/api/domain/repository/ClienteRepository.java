@@ -1,10 +1,9 @@
-package com.nyd.nydlog.domain.repository;
+package com.nyd.nydlog.api.domain.repository;
 
-import com.nyd.nydlog.domain.model.Cliente;
+import com.nyd.nydlog.api.domain.model.Cliente;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import java.util.List;
 import java.util.Optional;
 
 @Repository

@@ -1,17 +1,15 @@
 package com.nyd.nydlog.api.controller;
 
-import com.nyd.nydlog.domain.model.Cliente;
-import com.nyd.nydlog.domain.repository.ClienteRepository;
-import com.nyd.nydlog.domain.service.ClienteService;
+import com.nyd.nydlog.api.domain.model.Cliente;
+import com.nyd.nydlog.api.domain.repository.ClienteRepository;
+import com.nyd.nydlog.api.domain.service.ClienteService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 
 @AllArgsConstructor
 @RestController
